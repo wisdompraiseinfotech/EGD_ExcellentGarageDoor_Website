@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Garage Door Website</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Outfit',sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    overflow-x:hidden;
+}
+
+/* =========================
+   TOP HEADER
+========================= */
+
+.top-header{
+    width:100%;
+    background:#27a9e1;
+    padding:12px 20px;
+}
+
+.header-container{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.left-section{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.email{
+    color:white;
+    font-size:15px;
+    font-weight:600;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+}
+
+.social-icons a{
+    color:white;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.social-icons a:hover{
+    transform:scale(1.1);
+}
+
+.right-section{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    background:#f26a21;
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:4px;
+    font-size:14px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#d95c1d;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    width:100%;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:999;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.nav-container{
+    max-width:1400px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo img{
+    width:180px;
+    max-width:100%;
+}
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    list-style:none;
+}
+
+.nav-menu li{
+    position:relative;
+}
+
+.nav-menu li a{
+    text-decoration:none;
+    color:#000;
+    font-size:14px;
+    font-weight:700;
+    transition:0.3s;
+    white-space:nowrap;
+}
+
+.nav-menu li a:hover{
+    color:#f26522;
+}
+
+.nav-menu li i{
+    font-size:12px;
+    margin-left:4px;
+}
+
+/* BUTTON */
+
+.design-btn{
+    background:#f26522;
+    color:white !important;
+    padding:12px 20px;
+    border-radius:6px;
+}
+
+.design-btn:hover{
+    background:#d95414;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown-menu{
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    min-width:220px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-radius:8px;
+    padding:10px 0;
+    display:none;
+    z-index:999;
+}
+
+.dropdown-menu li{
+    list-style:none;
+}
+
+.dropdown-menu li a{
+    display:block;
+    padding:12px 18px;
+    color:#000;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.dropdown-menu li a:hover{
+    background:#f5f5f5;
+    color:#f26522;
+}
+
+/* DESKTOP HOVER */
+
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
+/* MOBILE MENU ICON */
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    min-height:85vh;
+    background:url('images/our\ Project3.jpg') center/cover no-repeat;
+}
+
+.overlay{
+    min-height:85vh;
+    background:rgba(0,0,0,0.45);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px;
+    color:white;
+}
+
+.overlay h1{
+    font-size:60px;
+    max-width:700px;
+    line-height:1.2;
+}
+
+.overlay p{
+    margin:25px 0;
+    font-size:20px;
+    max-width:650px;
+    line-height:1.6;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.hero-buttons button{
+    padding:14px 28px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.primary-btn{
+    background:#EB5C22;
+    color:white;
+}
+
+.secondary-btn{
+    background:#12AAEE;
+    color:white;
+}
+
+
+.hero-buttons button:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+    max-width:1300px;
+    margin:auto;
+    padding:80px 20px;
+    display:flex;
+    gap:30px;
+}
+
+.sidebar{
+    width:280px;
+    background:linear-gradient(135deg,#f36b21,#e24d00);
+    color:white;
+    padding:30px;
+    border-radius:20px;
+    height:fit-content;
+}
+
+.sidebar h2{
+    margin-bottom:25px;
+    background:#12AAEE;
+    padding: 15px;
+    border-radius:20px;
+
+}
+
+.menu-item{
+    padding:16px;
+    margin-bottom:15px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu-item:hover{
+    background:#12AAEE;
+}
+
+
+.cards{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card{
+    background: #0B7DB3;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:8px 8px 0 grey;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+.card p{
+    margin-bottom:20px;
+    line-height:1.6;
+    color:white;
+}
+
+.card button{
+    background:#EB5C22;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:linear-gradient(90deg,#0B7DB3,#07142f);
+    padding:40px 20px;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-logo img{
+    width:180px;
+    border-radius:10px;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:#EB5C22;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1100px){
+
+    .nav-menu{
+        gap:14px;
+    }
+
+    .nav-menu li a{
+        font-size:13px;
+    }
+
+    .overlay h1{
+        font-size:48px;
+    }
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+}
+
+/* =========================
+   MOBILE NAVBAR
+========================= */
+
+@media(max-width:991px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-menu{
+        position:absolute;
+        top:100px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:0;
+        display:none;
+        box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active{
+        display:flex;
+    }
+
+    .nav-menu li{
+        width:100%;
+        border-bottom:1px solid #ddd;
+    }
+
+    .nav-menu li a{
+        display:block;
+        width:100%;
+        padding:15px 0;
+    }
+
+    .design-btn{
+        width:100%;
+        text-align:center;
+        margin-top:15px;
+    }
+
+    /* MOBILE DROPDOWN */
+
+    .dropdown-menu{
+        position:static;
+        display:none;
+        box-shadow:none;
+        width:100%;
+        background:#f9f9f9;
+        padding-left:10px;
+        border-radius:0;
+    }
+
+    .dropdown.active .dropdown-menu{
+        display:block;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .header-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .left-section{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .right-section{
+        justify-content:center;
+    }
+
+    .overlay{
+        padding:50px 20px;
+        text-align:center;
+        align-items:center;
+    }
+
+    .overlay h1{
+        font-size:36px;
+    }
+
+    .overlay p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .hero-buttons button{
+        width:100%;
+    }
+
+    .footer{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .footer-links{
+        justify-content:center;
+    }
+}
+
+@media(max-width:480px){
+
+    .logo img{
+        width:140px;
+    }
+
+    .overlay h1{
+        font-size:28px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .right-section{
+        width:100%;
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP HEADER -->
+
+<div class="top-header">
+
+    <div class="header-container">
+
+        <div class="left-section">
+
+            <div class="email">
+                excellentgaragedoor@gmail.com
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+        </div>
+
+        <div class="right-section">
+            <a href="#" class="btn">Create Account</a>
+            <a href="#" class="btn">Sign In</a>
+            <a href="#" class="btn">Franchise Opportunities</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="images/logo1.jpg" alt="Logo">
+        </div>
+
+        <!-- MENU -->
+        <ul class="nav-menu" id="navMenu">
+
+            <!-- DROPDOWN -->
+            <li class="dropdown">
+                <a href="#">
+                    GARAGE DOORS
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="#">Residential Doors</a></li>
+					<li><a href="#">Commercial Doors</a></li>
+                </ul>
+            </li>
+
+            <!-- DROPDOWN -->
+            <li class="dropdown">
+                <a href="#">
+                    DESIGN YOUR DOOR
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="#">All Commercial Doors</a></li>
+								<li><a href="#">Overhead Sectional Doors</a></li>
+								<li><a href="#">Rolling Doors</a></li>
+								<li><a href="#">Rolling Grilles</a></li>
+								<li><a href="#">Rolling Counter Doors</a></li>
+								<li><a href="#">industry appllications</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">GARAGE DOOR PARTS</a></li>
+
+            <li><a href="#">SERVICES/REPAIR</a></li>
+
+            <li><a href="#">INSPIRATION</a></li>
+
+            <!-- DROPDOWN -->
+            <li class="dropdown">
+                <a href="#">
+                    PROFESSIONALS
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="#">Garage Door Dealers</a></li>
+								<li><a href="#">Garage Door Wholesaler</a></li>
+								<li><a href="#">For Builders</a></li>
+								<li><a href="#">For Arcitech</a></li>
+								<li><a href="#">For Ptivate Homeowners</a></li>
+								<li><a href="#">For Others</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">SOLUTIONS</a></li>
+
+            <li>
+                <a href="#" class="design-btn">
+                    DESIGN YOUR DOOR
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- MOBILE ICON -->
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="overlay">
+
+        <h1>Premium Garage Door Solutions</h1>
+
+        <p>
+            Professional installation, repair and smart automation services trusted by thousands.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="primary-btn">Book Service</button>
+            <button class="secondary-btn">Explore Products</button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section class="dashboard">
+
+    <div class="sidebar">
+
+        <h2>Admin Panel</h2>
+
+        <div class="menu-item active">Dealer Approvals</div>
+        <div class="menu-item">Products</div>
+        <div class="menu-item">Orders</div>
+        <div class="menu-item">Locations</div>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Dealer Approvals</h3>
+            <p>Review dealer applications quickly.</p>
+            <button>Review</button>
+        </div>
+
+        <div class="card">
+            <h3>Products</h3>
+            <p>Manage product catalog and pricing.</p>
+            <button>Manage</button>
+        </div>
+
+        <div class="card">
+            <h3>Orders</h3>
+            <p>Track shipments and order statuses.</p>
+            <button>Track</button>
+        </div>
+
+        <div class="card">
+            <h3>Locations</h3>
+            <p>Manage service center locations.</p>
+            <button>Manage</button>
+        </div>
+
+        <div class="card">
+            <h3>Locations</h3>
+            <p>Manage service center locations.</p>
+            <button>Manage</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        <img src="images/logo1.jpg" alt="">
+    </div>
+
+    <div class="footer-links">
+        <a href="#"><b>Products</b></a>
+        <a href="#"><b>Dealers</b></a>
+        <a href="#"><b>Support</b></a>
+    </div>
+
+    <p><b>© 2026 Excellent Garage Door</b></p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* MOBILE NAVBAR */
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.onclick = () => {
+    navMenu.classList.toggle("active");
+};
+
+/* MOBILE DROPDOWN */
+
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(dropdown => {
+
+    dropdown.addEventListener("click", function(e){
+
+        if(window.innerWidth <= 991){
+
+            e.preventDefault();
+
+            this.classList.toggle("active");
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
